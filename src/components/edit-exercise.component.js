@@ -20,7 +20,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('/exercises/'+this.props.match.params.id)
+    axios.get('/exercises/'+this.props.match.params.id, {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
       .then(response => {
         this.setState({
           description: response.data.description,
@@ -62,7 +62,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('/exercises/update/' + this.props.match.params.id, exercise)
+    axios.post('/exercises/update/' + this.props.match.params.id, exercise, {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
       .then(res => console.log(res.data));
 
     window.location = '/';
