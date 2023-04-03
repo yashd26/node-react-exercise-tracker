@@ -1,23 +1,28 @@
 const router = require('express').Router();
 let Exercise = require('../models/exercise.model');
+const requireAuth = require('../middleware/requireAuth');
 
-router.route('/').get((req, res) => {
-  Exercise.find()
-    .then(exercises => res.json(exercises))
-    .catch(err => res.status(400).json('Error: ' + err));
+router.use(requireAuth);
+
+router.route('/').get(async function getExercises(req, res) {
+  const user_id = req.user._id
+
+  const workouts = await Exercise.find({user_id}).sort({createdAt: -1})
+
+  res.status(200).json(workouts)
 });
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
   const description = req.body.description;
   const duration = Number(req.body.duration);
   const date = Date.parse(req.body.date);
+  const user_id = req.user._id;
 
   const newExercise = new Exercise({
-    username,
     description,
     duration,
     date,
+    user_id,
   });
 
   newExercise.save()
@@ -40,10 +45,10 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Exercise.findById(req.params.id)
     .then(exercise => {
-      exercise.username = req.body.username;
       exercise.description = req.body.description;
       exercise.duration = Number(req.body.duration);
       exercise.date = Date.parse(req.body.date);
+      exercise.user_id = req.user._id;
 
       exercise.save()
         .then(() => res.json('Exercise updated!'))
