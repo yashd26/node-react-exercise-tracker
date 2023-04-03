@@ -20,9 +20,13 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('/exercises/'+this.props.match.params.id, {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
-      .then(response => {
-        this.setState({
+    axios.get('/exercises/'+this.props.match.params.id, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(response => {
+      this.setState({
           description: response.data.description,
           duration: response.data.duration,
           date: new Date(response.data.date)
@@ -62,7 +66,11 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('/exercises/update/' + this.props.match.params.id, exercise, {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
+    axios.post('/exercises/update/' + this.props.match.params.id, exercise, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
       .then(res => console.log(res.data));
 
     window.location = '/';
