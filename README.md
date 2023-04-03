@@ -1,8 +1,9 @@
 # node-react-exercise-tracker
-MERN stack based exercise tracker
+MERN stack based exercise tracker with JWT authentication
 
 Site live on: https://exercisetracker-038p.onrender.com
 
-![175646992-520f42d5-574a-4647-9b13-5a9466764989](https://user-images.githubusercontent.com/65943606/227635827-eb0cddf3-925c-4c0c-9569-8f93e9fe598a.jpg)
+![Capture](https://user-images.githubusercontent.com/65943606/229606418-32895ee7-90f1-41d4-9471-abddae3155d4.JPG)
+![Capture1](https://user-images.githubusercontent.com/65943606/229606424-b37ecafa-e76b-4d48-94e9-549bdf13639f.JPG)
 
-![175646996-19034a99-cf1b-43aa-a69e-f8345c70fc43](https://user-images.githubusercontent.com/65943606/227635839-cd611874-b3cd-4a3d-80bf-5d59b75b8d9c.jpg)
+
