@@ -26,6 +26,9 @@ function Register() {
 
 		if (data.status === 'ok') {
 			history.push('/login')
+			alert("Register Successful")
+		} else {
+			alert('Some error has occured')
 		}
 	}
 

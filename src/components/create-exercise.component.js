@@ -53,8 +53,8 @@ export default class CreateExercise extends Component {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
-    })
-      .then(res => console.log(res.data));
+    }).then(res => console.log(res.data))
+    .then(alert('exercise added'));
 
     window.location = '/';
   }

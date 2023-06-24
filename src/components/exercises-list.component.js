@@ -38,7 +38,8 @@ export default class ExercisesList extends Component {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
     })
-      .then(response => { console.log(response.data)});
+      .then(response => { console.log(response.data)})
+      .then(alert('exercise deleted'));
 
     this.setState({
       exercises: this.state.exercises.filter(el => el._id !== id)

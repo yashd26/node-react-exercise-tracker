@@ -30,6 +30,9 @@ export default class Navbar extends Component {
           )}
         </ul>
         </div>
+        {!localStorage.getItem('token') && (
+            <p style={{color: "white"}}>Login/Register first to view/create exercises</p>
+        )}
       </nav>
     );
   }

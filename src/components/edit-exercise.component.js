@@ -33,6 +33,7 @@ export default class EditExercise extends Component {
         })   
       })
       .catch(function (error) {
+        alert('error');
         console.log(error);
       })
   }
@@ -71,7 +72,8 @@ export default class EditExercise extends Component {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
     })
-      .then(res => console.log(res.data));
+      .then(res => console.log(res.data))
+      .then(alert('exercise updated'));
 
     window.location = '/';
   }
