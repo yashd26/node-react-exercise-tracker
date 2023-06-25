@@ -25,8 +25,8 @@ function Register() {
 		const data = await response.json()
 
 		if (data.status === 'ok') {
-			history.push('/login')
 			alert("Register Successful")
+			window.location.href = '/login'
 		} else {
 			alert('Some error has occured')
 		}
