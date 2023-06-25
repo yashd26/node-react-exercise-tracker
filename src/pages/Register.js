@@ -25,9 +25,11 @@ function Register() {
 		const data = await response.json()
 
 		if (data.status === '200') {
+			console.log(data.status);
 			alert("Register Successful");
 			history.push('/login');
 		} else {
+			console.log(data.status);
 			alert('Some error has occured');
 		}
 	}
