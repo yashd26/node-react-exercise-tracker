@@ -24,10 +24,11 @@ function Register() {
 
 		const data = await response.json()
 
-		if (data.status === 'ok') {
+		if (data.status === 200) {
 			alert("Register Successful")
 			window.location.href = '/login'
-		} else {
+		}
+		else {
 			alert('Some error has occured')
 		}
 	}
