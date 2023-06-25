@@ -24,12 +24,11 @@ function Register() {
 
 		const data = await response.json()
 
-		if (data.status === 200) {
-			alert("Register Successful")
-			window.location.href = '/login'
-		}
-		else {
-			alert('Some error has occured')
+		if (data.status === '200') {
+			alert("Register Successful");
+			history.push('/login');
+		} else {
+			alert('Some error has occured');
 		}
 	}
 
